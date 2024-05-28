@@ -3,8 +3,7 @@ package br.com.alura.literalura_desafio.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-public class ConvertDados implements IConvertDados {
+public class ConverteDados implements IConvertDados {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Override
@@ -15,4 +14,5 @@ public class ConvertDados implements IConvertDados {
             throw new RuntimeException(e);
         }
     }
+
 }
