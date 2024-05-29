@@ -1,18 +1,25 @@
 package br.com.alura.literalura_desafio.model;
 
-import br.com.alura.literalura_desafio.dto.AutorDTO;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.List;
+import java.util.Optional;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Livro {
 
     private Integer id;
-    private String title;
-    private List<AutorDTO> author;
-    private String idioma;
-    private Integer quantidadeDownloads;
+    private String titulo;
+    private List<DadosAutor> autor;
+    private List<String> idioma;
+    private Integer numeroDownloads;
+
+    public Livro(DadosLivro dadosLivro){
+        this.id = Optional.of(Integer.valueOf(dadosLivro.id())).orElse(0);
+        this.titulo = dadosLivro.titulo();
+        this.autor = dadosLivro.autor();
+        this.idioma = dadosLivro.idioma();
+        this.numeroDownloads = Optional.of(Integer.valueOf(dadosLivro.numeroDownload())).orElse(0);
+
+    }
+
 
     public Integer getId() {
         return id;
@@ -22,46 +29,45 @@ public class Livro {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public List<AutorDTO> getAuthor() {
-        return author;
+    public List<DadosAutor> getAutor() {
+        return autor;
     }
 
-    public void setAuthor(List<AutorDTO> author) {
-        this.author = author;
+    public void setAutor(List<DadosAutor> autor) {
+        this.autor = autor;
     }
 
-    public String getIdioma() {
+    public List<String> getIdioma() {
         return idioma;
     }
 
-    public void setIdioma(String idioma) {
+    public void setIdioma(List<String> idioma) {
         this.idioma = idioma;
     }
 
-    public Integer getQuantidadeDownloads() {
-        return quantidadeDownloads;
+    public Integer getNumeroDownloads() {
+        return numeroDownloads;
     }
 
-    public void setQuantidadeDownloads(Integer quantidadeDownloads) {
-        this.quantidadeDownloads = quantidadeDownloads;
+    public void setNumeroDownloads(Integer numeroDownloads) {
+        this.numeroDownloads = numeroDownloads;
     }
 
     @Override
     public String toString() {
-        return "Livro{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
+        return
+                "id='" + id + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", autores='" + autor + '\'' +
                 ", idioma='" + idioma + '\'' +
-                ", quantidadeDownloads=" + quantidadeDownloads +
-                '}';
+                ", numeroDownloads='" + numeroDownloads + '\'';
     }
 }

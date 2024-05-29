@@ -1,7 +1,6 @@
 package br.com.alura.literalura_desafio.model;
 
 public class Autor {
-
     private Integer dataNascimento;
     private Integer dataFalecimento;
     private String nome;
@@ -33,8 +32,8 @@ public class Autor {
     @Override
     public String toString() {
         return "Autor{" +
-                "dataNascimento=" + dataNascimento +
-                ", dataFalecimento=" + dataFalecimento +
+                "dataNascimento='" + dataNascimento + '\'' +
+                ", dataFalecimento='" + dataFalecimento + '\'' +
                 ", nome='" + nome + '\'' +
                 '}';
     }
